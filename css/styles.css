@@ -1,0 +1,843 @@
+/* =============================================
+   CSS CUSTOM PROPERTIES (edit these to re-theme)
+   ============================================= */
+:root {
+  --color-bg: #f7f5f1;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text: #1d1a1a;
+  --color-text-muted: #6c757d;
+  --color-red: #fd3300;
+  --color-orange-btn: #ff4500;
+  --color-green: #2e7d32;
+  --color-green-light: #e8f5e6;
+  --color-green-dark: #2e4734;
+  --color-border: #f5f5f5;
+  --color-gold: #ffb800;
+  --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Courier New', monospace;
+  --max-width: 1200px;
+  --cart-bar-height: 70px;
+}
+
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.6;
+  padding-bottom: var(--cart-bar-height);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =============================================
+   HEADER
+   ============================================= */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-black);
+}
+
+.logo img {
+  height: 28px;
+  width: auto;
+}
+
+.header-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-black);
+}
+
+/* =============================================
+   PRODUCT HERO
+   ============================================= */
+.product-hero {
+  background: var(--color-bg);
+  padding: 20px 0 40px;
+}
+
+.product-hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.product-main-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.badge-sale {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--color-bg);
+  border: 1px solid #ccc;
+  padding: 2px 10px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  width: 20px;
+  height: 19px;
+}
+
+.rating-value {
+  font-weight: 700;
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.rating-text {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.product-title {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.price-sale {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.price-original {
+  font-size: 18px;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.badge-discount {
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--color-bg);
+  border: 1px solid #ccc;
+  padding: 2px 10px;
+  border-radius: 3px;
+}
+
+.shipping-note {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.shipping-note a {
+  text-decoration: underline;
+}
+
+.product-description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Coach Avatar */
+.coach-avatar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.coach-thumb {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.coach-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.coach-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Feature List */
+.feature-list {
+  margin-bottom: 24px;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.feature-list li .check {
+  color: var(--color-green);
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* =============================================
+   ADD TO CART BAR
+   ============================================= */
+.add-to-cart-section {
+  margin-bottom: 24px;
+}
+
+.btn-add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  background: var(--color-orange-btn);
+  color: var(--color-white);
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-add-to-cart:hover {
+  background: #e03e00;
+}
+
+/* USP Row */
+.usp-row {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.usp-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.usp-item svg {
+  flex-shrink: 0;
+}
+
+/* =============================================
+   STICKY CART BAR (bottom)
+   ============================================= */
+.sticky-cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-white);
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding: 12px 24px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.sticky-cart-bar .btn-sticky-cart {
+  padding: 14px 40px;
+  background: var(--color-orange-btn);
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sticky-cart-bar .btn-sticky-cart:hover {
+  background: #e03e00;
+}
+
+.sticky-price {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.sticky-price .original {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+/* =============================================
+   LOGO BANNER ("As featured in...")
+   ============================================= */
+.logo-banner {
+  background: var(--color-white);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.logo-banner-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.logo-banner h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.logo-row img {
+  height: 30px;
+  width: auto;
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: opacity 0.3s;
+}
+
+.logo-row img:hover {
+  opacity: 1;
+}
+
+/* =============================================
+   HERO CTA SECTION
+   ============================================= */
+.hero-cta {
+  background: var(--color-green-dark);
+  color: var(--color-white);
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.hero-cta-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-cta h2 {
+  font-size: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.hero-cta p {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+
+.btn-cta {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--color-orange-btn);
+  color: var(--color-white);
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-cta:hover {
+  background: #e03e00;
+}
+
+/* =============================================
+   BONUSES SECTION
+   ============================================= */
+.bonuses-section {
+  background: var(--color-white);
+  padding: 60px 24px;
+}
+
+.bonuses-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.bonuses-section h2 {
+  font-size: 32px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.bonus-card {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+  align-items: center;
+  background: var(--color-bg);
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+
+.bonus-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.bonus-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-red);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.bonus-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.bonus-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.bonus-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-green);
+  margin-top: 8px;
+}
+
+/* =============================================
+   COACH BIO SECTION
+   ============================================= */
+.coach-bio {
+  padding: 60px 24px;
+  background: var(--color-bg);
+}
+
+.coach-bio-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.coach-bio img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.coach-bio h2 {
+  font-size: 32px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.coach-bio p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+/* =============================================
+   GUARANTEE SECTION
+   ============================================= */
+.guarantee {
+  background: var(--color-green-light);
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.guarantee-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.guarantee-badge {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+}
+
+.guarantee h2 {
+  font-size: 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.guarantee p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* =============================================
+   FAQ ACCORDION
+   ============================================= */
+.faq-section {
+  background: var(--color-white);
+  padding: 60px 24px;
+}
+
+.faq-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-section h2 {
+  font-size: 32px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 0;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-main);
+  color: var(--color-text);
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 24px;
+  font-weight: 300;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question::after {
+  content: '−';
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+  padding: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* =============================================
+   RELATED PRODUCTS
+   ============================================= */
+.related-products {
+  background: var(--color-bg);
+  padding: 60px 24px;
+}
+
+.related-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.related-products h2 {
+  font-size: 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.related-card {
+  background: var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.related-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.related-card-body {
+  padding: 16px;
+}
+
+.related-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.related-card .related-price {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.related-card .related-price .original {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  margin-left: 6px;
+  font-size: 13px;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.site-footer {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: 48px 24px 24px;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.footer-col h4 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 10px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: var(--color-white);
+}
+
+.footer-bottom {
+  max-width: var(--max-width);
+  margin: 32px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 992px) {
+  .product-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .bonus-card {
+    grid-template-columns: 1fr;
+  }
+
+  .coach-bio-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .product-title {
+    font-size: 24px;
+  }
+
+  .hero-cta h2 {
+    font-size: 26px;
+  }
+
+  .bonuses-section h2,
+  .faq-section h2,
+  .related-products h2 {
+    font-size: 24px;
+  }
+
+  .related-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .usp-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-row {
+    gap: 20px;
+  }
+
+  .logo-row img {
+    height: 22px;
+  }
+}
