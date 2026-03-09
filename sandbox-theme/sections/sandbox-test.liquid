@@ -1,0 +1,35 @@
+{% schema %}
+{
+  "name": "Sandbox Test",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Sandbox Section"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "This section is for testing. Edit the headline and body in the theme customizer."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#eeeeee"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sandbox Test"
+    }
+  ]
+}
+{% endschema %}
+
+<div style="padding:40px;background:{{ section.settings.bg_color }};text-align:center;">
+  <h2>{{ section.settings.headline }}</h2>
+  <p>{{ section.settings.body_text }}</p>
+</div>
