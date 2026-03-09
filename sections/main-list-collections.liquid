@@ -1,0 +1,23 @@
+<div style="max-width:var(--max-width);margin:0 auto;padding:40px 24px;">
+  <h1>Collections</h1>
+  <div class="related-grid">
+    {% for collection in collections %}
+      <a href="{{ collection.url }}" class="related-card">
+        {% if collection.image %}
+          {{ collection.image | image_url: width: 400 | image_tag: alt: collection.title }}
+        {% endif %}
+        <div class="related-card-body">
+          <h4>{{ collection.title }}</h4>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection List",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

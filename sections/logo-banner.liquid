@@ -1,0 +1,58 @@
+<section class="logo-banner">
+  <div class="logo-banner-inner">
+    <h3>{{ section.settings.heading }}</h3>
+    <div class="logo-row">
+      {% for block in section.blocks %}
+        {% if block.settings.logo != blank %}
+          <div {{ block.shopify_attributes }}>
+            {{ block.settings.logo | image_url: height: 30 | image_tag: alt: block.settings.alt_text }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Logo Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "As Featured In"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text",
+          "default": "Logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo Banner",
+      "blocks": [
+        { "type": "logo", "settings": { "alt_text": "Golf Digest" } },
+        { "type": "logo", "settings": { "alt_text": "Golf Channel" } },
+        { "type": "logo", "settings": { "alt_text": "PGA Tour" } },
+        { "type": "logo", "settings": { "alt_text": "Golf Monthly" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,80 @@
+<section class="bonuses-section">
+  <div class="bonuses-inner">
+    <h2>{{ section.settings.heading }}</h2>
+
+    {% for block in section.blocks %}
+      <div class="bonus-card" {{ block.shopify_attributes }}>
+        {% if block.settings.image != blank %}
+          {{ block.settings.image | image_url: width: 600 | image_tag: alt: block.settings.title }}
+        {% endif %}
+        <div>
+          <span class="bonus-tag">{{ block.settings.tag }}</span>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.description }}</p>
+          <span class="bonus-value">{{ block.settings.value }}</span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bonuses",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Free Bonuses Included"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bonus_card",
+      "name": "Bonus",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag",
+          "default": "Bonus #1 — Free"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Bonus Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Bonus description here."
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value text",
+          "default": "Value: $47"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bonuses",
+      "blocks": [
+        { "type": "bonus_card", "settings": { "tag": "Bonus #1 — Free", "title": "Driver Distance Secrets", "description": "Add 20–30 yards to your drives with these tour-proven power techniques.", "value": "Value: $47" } },
+        { "type": "bonus_card", "settings": { "tag": "Bonus #2 — Free", "title": "Short Game Putting Masterclass", "description": "Shave 5–7 strokes off your score with a reliable putting routine.", "value": "Value: $37" } },
+        { "type": "bonus_card", "settings": { "tag": "Bonus #3 — Free", "title": "Mental Game Confidence Guide", "description": "Stay calm under pressure on every hole with 7 mental strategies.", "value": "Value: $27" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+<div style="max-width:var(--max-width);margin:0 auto;padding:40px 24px;">
+  <h1>Your Cart</h1>
+  {% if cart.item_count > 0 %}
+    <form action="/cart" method="post">
+      {% for item in cart.items %}
+        <div style="display:flex;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid #e0e0e0;">
+          {% if item.image %}
+            {{ item.image | image_url: width: 100 | image_tag }}
+          {% endif %}
+          <div style="flex:1;">
+            <h4><a href="{{ item.url }}">{{ item.title }}</a></h4>
+            <p>{{ item.price | money }} &times; {{ item.quantity }}</p>
+          </div>
+        </div>
+      {% endfor %}
+      <div style="text-align:right;padding:24px 0;">
+        <p style="font-size:20px;font-weight:700;">Total: {{ cart.total_price | money }}</p>
+        <button type="submit" name="checkout" class="btn-add-to-cart" style="max-width:300px;margin-top:12px;">Checkout</button>
+      </div>
+    </form>
+  {% else %}
+    <p>Your cart is empty.</p>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Cart",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

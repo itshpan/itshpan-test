@@ -1,0 +1,41 @@
+<section class="coach-bio">
+  <div class="coach-bio-inner">
+    {% if section.settings.image != blank %}
+      {{ section.settings.image | image_url: width: 800 | image_tag: alt: section.settings.heading }}
+    {% endif %}
+    <div>
+      <h2>{{ section.settings.heading }}</h2>
+      {{ section.settings.body }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Coach Bio",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Coach photo"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Meet Your Coach"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Bio text",
+      "default": "<p>Eric Cogorno is a PGA-certified teaching professional with over 15 years of experience helping golfers of all levels fix their swings. His YouTube channel has over 500,000 subscribers and 100 million views.</p><p>Eric's teaching philosophy is simple: small changes create big results. The One Shot Slice Fix is his most popular program, designed to give you a tour-quality ball flight in the shortest time possible.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Coach Bio"
+    }
+  ]
+}
+{% endschema %}

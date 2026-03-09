@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "hero-cta": {
+      "type": "hero-cta",
+      "settings": {
+        "heading": "Stop Slicing. Start Scoring.",
+        "body": "Join over 50,000 golfers who've transformed their drives with one simple adjustment.",
+        "button_text": "Shop Now"
+      }
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Featured Programs",
+        "limit": 4
+      }
+    }
+  },
+  "order": ["hero-cta", "related"]
+}

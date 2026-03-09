@@ -1,0 +1,43 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    {% for block in section.blocks %}
+      <div class="footer-col" {{ block.shopify_attributes }}>
+        <h4>{{ block.settings.heading }}</h4>
+        {% if block.settings.menu != blank %}
+          {% for link in linklists[block.settings.menu].links %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endfor %}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  <div class="footer-bottom">
+    &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "link_column",
+      "name": "Link Column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Links"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

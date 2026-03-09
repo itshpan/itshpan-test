@@ -1,0 +1,23 @@
+<div style="max-width:800px;margin:0 auto;padding:40px 24px;">
+  <h1>Search</h1>
+  <form action="{{ routes.search_url }}" method="get">
+    <input type="text" name="q" value="{{ search.terms | escape }}" placeholder="Search..." style="width:100%;padding:12px;font-size:16px;border:1px solid #ccc;border-radius:6px;">
+  </form>
+  {% if search.performed %}
+    <p style="margin-top:16px;">{{ search.results_count }} results for "{{ search.terms }}"</p>
+    {% for item in search.results %}
+      <div style="padding:16px 0;border-bottom:1px solid #e0e0e0;">
+        <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+        <p>{{ item.content | strip_html | truncatewords: 30 }}</p>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Search",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

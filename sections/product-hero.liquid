@@ -1,0 +1,167 @@
+<section class="product-hero">
+  <div class="product-hero-inner">
+    <!-- Left: Product Image -->
+    <div>
+      {% if product.featured_image %}
+        {{ product.featured_image | image_url: width: 800 | image_tag: class: 'product-main-image', alt: product.title }}
+      {% else %}
+        <!-- IMAGE: Main product image placeholder -->
+        <img class="product-main-image" src="https://cdn.shopify.com/s/files/1/0597/3531/5498/files/one-shot-slice-fix-hero.jpg?v=1680000000" alt="{{ product.title }}">
+      {% endif %}
+    </div>
+
+    <!-- Right: Product Info -->
+    <div>
+      {% if product.compare_at_price > product.price %}
+        <span class="badge-sale">{{ 'general.sale' | t }}</span>
+      {% endif %}
+
+      <div class="rating-row">
+        <div class="stars">
+          {% render 'star-rating', rating: section.settings.rating_value %}
+        </div>
+        <span class="rating-value">{{ section.settings.rating_value }}</span>
+        <span class="rating-text">({{ section.settings.review_count }} reviews)</span>
+      </div>
+
+      <h1 class="product-title">{{ product.title }}</h1>
+
+      <div class="price-row">
+        <span class="price-sale">{{ product.price | money }}</span>
+        {% if product.compare_at_price > product.price %}
+          <span class="price-original">{{ product.compare_at_price | money }}</span>
+          {% assign savings = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price %}
+          <span class="badge-discount">SAVE {{ savings }}%</span>
+        {% endif %}
+      </div>
+
+      <p class="shipping-note">
+        <a href="{{ routes.policies_url }}">{{ 'general.shipping_note' | t }}</a>
+      </p>
+
+      <div class="product-description">
+        {{ product.description }}
+      </div>
+
+      <!-- Coach Avatar -->
+      {% if section.settings.coach_image != blank %}
+        <div class="coach-avatar">
+          {{ section.settings.coach_image | image_url: width: 100 | image_tag: class: 'coach-thumb', alt: section.settings.coach_name }}
+          <div>
+            <span class="coach-label">{{ section.settings.coach_label }}</span>
+            <span class="coach-name">{{ section.settings.coach_name }}</span>
+          </div>
+        </div>
+      {% endif %}
+
+      <!-- Feature List -->
+      {% if section.blocks.size > 0 %}
+        <ul class="feature-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'feature_item' %}
+              <li {{ block.shopify_attributes }}>
+                <span class="check">&#10003;</span> {{ block.settings.text }}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+
+      <!-- Add to Cart -->
+      <div class="add-to-cart-section">
+        {%- form 'product', product -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <button type="submit" class="btn-add-to-cart" id="addToCartBtn"
+            {% unless product.available %}disabled{% endunless %}>
+            {% if product.available %}
+              {{ 'general.add_to_cart' | t }} &mdash; {{ product.price | money }}
+            {% else %}
+              {{ 'general.sold_out' | t }}
+            {% endif %}
+          </button>
+        {%- endform -%}
+
+        <div class="usp-row">
+          <span class="usp-item">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            {{ 'general.secure_checkout' | t }}
+          </span>
+          <span class="usp-item">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            {{ 'general.money_back' | t }}
+          </span>
+          <span class="usp-item">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            {{ 'general.instant_access' | t }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Hero",
+  "settings": [
+    {
+      "type": "range",
+      "id": "rating_value",
+      "label": "Rating value",
+      "min": 1,
+      "max": 5,
+      "step": 0.1,
+      "default": 4.8
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review count",
+      "default": "2,847"
+    },
+    {
+      "type": "image_picker",
+      "id": "coach_image",
+      "label": "Coach photo"
+    },
+    {
+      "type": "text",
+      "id": "coach_label",
+      "label": "Coach label",
+      "default": "Your Coach"
+    },
+    {
+      "type": "text",
+      "id": "coach_name",
+      "label": "Coach name",
+      "default": "Eric Cogorno"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_item",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature text",
+          "default": "Feature description here"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Hero",
+      "blocks": [
+        { "type": "feature_item", "settings": { "text": "Instant digital access — start watching in minutes" } },
+        { "type": "feature_item", "settings": { "text": "Works for all skill levels (beginner to single-digit)" } },
+        { "type": "feature_item", "settings": { "text": "One simple drill — no swing overhaul needed" } },
+        { "type": "feature_item", "settings": { "text": "Includes 3 bonus training videos (valued at $97)" } },
+        { "type": "feature_item", "settings": { "text": "60-day money-back guarantee" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

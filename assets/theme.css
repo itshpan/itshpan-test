@@ -1,27 +1,7 @@
 /* =============================================
-   CSS CUSTOM PROPERTIES (edit these to re-theme)
-   ============================================= */
-:root {
-  --color-bg: #f7f5f1;
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-text: #1d1a1a;
-  --color-text-muted: #6c757d;
-  --color-red: #fd3300;
-  --color-orange-btn: #ff4500;
-  --color-green: #2e7d32;
-  --color-green-light: #e8f5e6;
-  --color-green-dark: #2e4734;
-  --color-border: #f5f5f5;
-  --color-gold: #ffb800;
-  --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-mono: 'Courier New', monospace;
-  --max-width: 1200px;
-  --cart-bar-height: 70px;
-}
-
-/* =============================================
    RESET & BASE
+   (Custom properties are set in layout/theme.liquid
+    via Shopify theme settings)
    ============================================= */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -102,6 +82,7 @@ ul {
 .header-actions {
   display: flex;
   gap: 16px;
+  align-items: center;
 }
 
 .icon-btn {
@@ -109,6 +90,25 @@ ul {
   border: none;
   cursor: pointer;
   color: var(--color-black);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: var(--color-orange-btn);
+  color: var(--color-white);
+  font-size: 11px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* =============================================
@@ -301,6 +301,11 @@ ul {
 
 .btn-add-to-cart:hover {
   background: #e03e00;
+}
+
+.btn-add-to-cart:disabled {
+  background: #ccc;
+  cursor: not-allowed;
 }
 
 /* USP Row */
@@ -646,7 +651,7 @@ ul {
 }
 
 .faq-item.active .faq-question::after {
-  content: '−';
+  content: '\2212';
 }
 
 .faq-answer {

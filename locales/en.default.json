@@ -1,0 +1,22 @@
+{
+  "general": {
+    "add_to_cart": "Add to Cart",
+    "sold_out": "Sold Out",
+    "sale": "Sale",
+    "save": "Save {{ amount }}%",
+    "shipping_note": "Shipping calculated at checkout.",
+    "secure_checkout": "Secure Checkout",
+    "instant_access": "Instant Access",
+    "money_back": "60-Day Guarantee"
+  },
+  "sections": {
+    "header": {
+      "menu": "Menu",
+      "search": "Search",
+      "cart": "Cart"
+    },
+    "footer": {
+      "copyright": "© {{ year }} {{ shop_name }}. All rights reserved."
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<section class="hero-cta">
+  <div class="hero-cta-inner">
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.body }}</p>
+    <a href="{{ section.settings.button_link }}" class="btn-cta">{{ section.settings.button_text }}</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stop Slicing. Start Scoring."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body text",
+      "default": "Join over 50,000 golfers who've transformed their drives with one simple adjustment. No complicated drills. No expensive lessons. Just one powerful fix that works."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Get Instant Access — $39"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero CTA"
+    }
+  ]
+}
+{% endschema %}

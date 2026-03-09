@@ -1,0 +1,86 @@
+{
+  "sections": {
+    "product-hero": {
+      "type": "product-hero",
+      "settings": {
+        "rating_value": 4.8,
+        "review_count": "2,847",
+        "coach_label": "Your Coach",
+        "coach_name": "Eric Cogorno"
+      },
+      "blocks": {
+        "feature-1": { "type": "feature_item", "settings": { "text": "Instant digital access — start watching in minutes" } },
+        "feature-2": { "type": "feature_item", "settings": { "text": "Works for all skill levels (beginner to single-digit)" } },
+        "feature-3": { "type": "feature_item", "settings": { "text": "One simple drill — no swing overhaul needed" } },
+        "feature-4": { "type": "feature_item", "settings": { "text": "Includes 3 bonus training videos (valued at $97)" } },
+        "feature-5": { "type": "feature_item", "settings": { "text": "60-day money-back guarantee" } }
+      },
+      "block_order": ["feature-1", "feature-2", "feature-3", "feature-4", "feature-5"]
+    },
+    "logo-banner": {
+      "type": "logo-banner",
+      "settings": { "heading": "As Featured In" }
+    },
+    "hero-cta": {
+      "type": "hero-cta",
+      "settings": {
+        "heading": "Stop Slicing. Start Scoring.",
+        "body": "Join over 50,000 golfers who've transformed their drives with one simple adjustment. No complicated drills. No expensive lessons. Just one powerful fix that works.",
+        "button_text": "Get Instant Access — $39"
+      }
+    },
+    "bonuses": {
+      "type": "bonuses",
+      "settings": { "heading": "Free Bonuses Included" },
+      "blocks": {
+        "bonus-1": { "type": "bonus_card", "settings": { "tag": "Bonus #1 — Free", "title": "Driver Distance Secrets", "description": "Add 20–30 yards to your drives with these tour-proven power techniques. Includes 3 video lessons you can practice at the range or at home.", "value": "Value: $47" } },
+        "bonus-2": { "type": "bonus_card", "settings": { "tag": "Bonus #2 — Free", "title": "Short Game Putting Masterclass", "description": "Shave 5–7 strokes off your score with a reliable putting routine. Learn the same read-and-roll system used by top PGA professionals.", "value": "Value: $37" } },
+        "bonus-3": { "type": "bonus_card", "settings": { "tag": "Bonus #3 — Free", "title": "Mental Game Confidence Guide", "description": "Stay calm under pressure on every hole. This quick-read PDF gives you 7 mental strategies the pros rely on for clutch performance.", "value": "Value: $27" } }
+      },
+      "block_order": ["bonus-1", "bonus-2", "bonus-3"]
+    },
+    "coach-bio": {
+      "type": "coach-bio",
+      "settings": {
+        "heading": "Meet Your Coach",
+        "body": "<p>Eric Cogorno is a PGA-certified teaching professional with over 15 years of experience helping golfers of all levels fix their swings. His YouTube channel has over 500,000 subscribers and 100 million views.</p><p>Eric's teaching philosophy is simple: small changes create big results. The One Shot Slice Fix is his most popular program, designed to give you a tour-quality ball flight in the shortest time possible.</p>"
+      }
+    },
+    "guarantee": {
+      "type": "guarantee",
+      "settings": {
+        "heading": "60-Day Money-Back Guarantee",
+        "body": "<p>Try the One Shot Slice Fix completely risk-free. If you don't see a noticeable improvement in your drives within 60 days, simply email us and we'll refund every penny — no questions asked.</p>"
+      }
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": { "heading": "Frequently Asked Questions" },
+      "blocks": {
+        "faq-1": { "type": "faq_item", "settings": { "question": "How quickly will I see results?", "answer": "<p>Most golfers notice a significant reduction in their slice within the first practice session. The drill is designed to create an immediate feel change that carries over to the course.</p>" } },
+        "faq-2": { "type": "faq_item", "settings": { "question": "What if I'm a complete beginner?", "answer": "<p>This program works for all skill levels. In fact, beginners often see the fastest results because they haven't built up years of bad habits.</p>" } },
+        "faq-3": { "type": "faq_item", "settings": { "question": "Is this a physical product or digital?", "answer": "<p>This is a 100% digital product. You'll get instant access to stream all video lessons on any device — phone, tablet, or computer.</p>" } },
+        "faq-4": { "type": "faq_item", "settings": { "question": "How long do I have access?", "answer": "<p>You get lifetime access. Watch the lessons as many times as you want, whenever you want.</p>" } },
+        "faq-5": { "type": "faq_item", "settings": { "question": "What if it doesn't work for me?", "answer": "<p>We offer a full 60-day money-back guarantee. If you're not satisfied for any reason, just email our support team and we'll process your refund — no questions asked.</p>" } }
+      },
+      "block_order": ["faq-1", "faq-2", "faq-3", "faq-4", "faq-5"]
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You May Also Like",
+        "limit": 4
+      }
+    }
+  },
+  "order": [
+    "product-hero",
+    "logo-banner",
+    "hero-cta",
+    "bonuses",
+    "coach-bio",
+    "guarantee",
+    "faq",
+    "related"
+  ]
+}

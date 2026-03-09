@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}</title>
+
+  {{ content_for_header }}
+
+  {%- style -%}
+    :root {
+      --color-bg: {{ settings.color_bg }};
+      --color-white: #ffffff;
+      --color-black: #000000;
+      --color-text: {{ settings.color_text }};
+      --color-text-muted: #6c757d;
+      --color-red: #fd3300;
+      --color-orange-btn: {{ settings.color_accent }};
+      --color-green: {{ settings.color_green }};
+      --color-green-light: #e8f5e6;
+      --color-green-dark: {{ settings.color_green_dark }};
+      --color-border: #f5f5f5;
+      --color-gold: #ffb800;
+      --font-main: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }};
+      --font-heading: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }};
+      --max-width: 1200px;
+      --cart-bar-height: 70px;
+    }
+  {%- endstyle -%}
+
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+
+  {{ settings.font_heading | font_face: font_display: 'swap' }}
+  {{ settings.font_body | font_face: font_display: 'swap' }}
+</head>
+<body>
+  {% section 'header' %}
+
+  <main id="MainContent" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'footer' %}
+
+  {% if template.name == 'product' %}
+    {% section 'sticky-cart-bar' %}
+  {% endif %}
+
+  {{ 'theme.js' | asset_url | script_tag }}
+</body>
+</html>

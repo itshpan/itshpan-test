@@ -1,0 +1,13 @@
+<div style="max-width:800px;margin:0 auto;padding:40px 24px;">
+  <h1>{{ article.title }}</h1>
+  <p style="color:var(--color-text-muted);font-size:14px;">{{ article.published_at | date: '%B %d, %Y' }} &middot; {{ article.author }}</p>
+  <div>{{ article.content }}</div>
+</div>
+
+{% schema %}
+{
+  "name": "Article",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

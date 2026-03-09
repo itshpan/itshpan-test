@@ -1,0 +1,44 @@
+<header class="site-header">
+  <div class="header-inner">
+    <button class="menu-toggle" aria-label="{{ 'sections.header.menu' | t }}">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a href="{{ routes.root_url }}" class="logo">
+      {% if section.settings.logo != blank %}
+        {{ section.settings.logo | image_url: width: 200 | image_tag: alt: shop.name }}
+      {% else %}
+        <span style="font-weight:900;font-size:18px;">{{ shop.name }}</span>
+      {% endif %}
+    </a>
+
+    <div class="header-actions">
+      <a href="{{ routes.search_url }}" class="icon-btn" aria-label="{{ 'sections.header.search' | t }}">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+        </svg>
+      </a>
+      <a href="{{ routes.cart_url }}" class="icon-btn" aria-label="{{ 'sections.header.cart' | t }}">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        {% if cart.item_count > 0 %}
+          <span class="cart-count">{{ cart.item_count }}</span>
+        {% endif %}
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    }
+  ]
+}
+{% endschema %}

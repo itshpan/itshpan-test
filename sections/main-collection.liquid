@@ -1,0 +1,29 @@
+<div style="max-width:var(--max-width);margin:0 auto;padding:40px 24px;">
+  <h1>{{ collection.title }}</h1>
+  <div class="related-grid">
+    {% for product in collection.products %}
+      <a href="{{ product.url }}" class="related-card">
+        {% if product.featured_image %}
+          {{ product.featured_image | image_url: width: 400 | image_tag: alt: product.title }}
+        {% endif %}
+        <div class="related-card-body">
+          <h4>{{ product.title }}</h4>
+          <span class="related-price">
+            {{ product.price | money }}
+            {% if product.compare_at_price > product.price %}
+              <span class="original">{{ product.compare_at_price | money }}</span>
+            {% endif %}
+          </span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}
