@@ -3,7 +3,8 @@
     "name": "theme_info",
     "theme_name": "One Shot Slice Fix",
     "theme_version": "1.0.0",
-    "theme_author": "Performance Golf"
+    "theme_author": "Performance Golf",
+    "theme_documentation_url": "https://performancegolf.com"
   },
   {
     "name": "Colors",
