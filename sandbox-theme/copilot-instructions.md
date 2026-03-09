@@ -1,1 +1,0 @@
-/Users/user/Documents/itshpan:test/sandbox-theme/AGENTS.md
