@@ -1,3 +1,3 @@
 # itshpan-test
 
-Project setup — add your code here.
+Shopify theme built with Liquid and JSON.

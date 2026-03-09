@@ -1,16 +1,7 @@
-# Dependencies
-node_modules/
-
 # Environment / secrets (never commit these)
 .env
 .env.local
 .env.*.local
-
-# Build output
-dist/
-build/
-.next/
-out/
 
 # OS
 .DS_Store
@@ -22,6 +13,17 @@ Thumbs.db
 *.swp
 *.swo
 
-# Logs
+# Node / JavaScript
+node_modules/
+dist/
+build/
 *.log
-npm-debug.log*
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Shopify CLI
+.shopify/
