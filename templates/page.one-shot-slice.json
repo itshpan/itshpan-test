@@ -3,6 +3,9 @@
     "product-hero": {
       "type": "product-hero",
       "settings": {
+        "heading": "Fix Your Slice in One Shot",
+        "subhead": "Discover a simple, field-tested system that straightens your ball flight and adds distance in a single focused range session.",
+        "button_text": "Add One Shot Slice Fix to Cart",
         "rating_value": 4.8,
         "review_count": "2,847",
         "coach_label": "Your Coach",

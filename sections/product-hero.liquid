@@ -4,9 +4,11 @@
     <div>
       {% if product.featured_image %}
         {{ product.featured_image | image_url: width: 800 | image_tag: class: 'product-main-image', alt: product.title }}
+      {% elsif section.settings.hero_image != blank %}
+        {{ section.settings.hero_image | image_url: width: 800 | image_tag: class: 'product-main-image', alt: section.settings.heading }}
       {% else %}
         <!-- IMAGE: Main product image placeholder -->
-        <img class="product-main-image" src="https://cdn.shopify.com/s/files/1/0597/3531/5498/files/one-shot-slice-fix-hero.jpg?v=1680000000" alt="{{ product.title }}">
+        <img class="product-main-image" src="https://cdn.shopify.com/s/files/1/0597/3531/5498/files/one-shot-slice-fix-hero.jpg?v=1680000000" alt="{{ section.settings.heading | default: product.title }}">
       {% endif %}
     </div>
 
@@ -24,7 +26,11 @@
         <span class="rating-text">({{ section.settings.review_count }} reviews)</span>
       </div>
 
-      <h1 class="product-title">{{ product.title }}</h1>
+      <h1 class="product-title">{{ product.title | default: section.settings.heading }}</h1>
+
+      {% if section.settings.subhead != blank %}
+        <p class="product-subhead">{{ section.settings.subhead }}</p>
+      {% endif %}
 
       <div class="price-row">
         <span class="price-sale">{{ product.price | money }}</span>
@@ -75,12 +81,20 @@
           <button type="submit" class="btn-add-to-cart" id="addToCartBtn"
             {% unless product.available %}disabled{% endunless %}>
             {% if product.available %}
-              {{ 'general.add_to_cart' | t }} &mdash; {{ product.price | money }}
+              {% if section.settings.button_text != blank %}
+                {{ section.settings.button_text }}
+              {% else %}
+                {{ 'general.add_to_cart' | t }} &mdash; {{ product.price | money }}
+              {% endif %}
             {% else %}
               {{ 'general.sold_out' | t }}
             {% endif %}
           </button>
         {%- endform -%}
+        {% elsif section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link | default: '#' }}" class="btn-add-to-cart">
+            {{ section.settings.button_text }}
+          </a>
         {% endif %}
 
         <div class="usp-row">
@@ -106,6 +120,34 @@
 {
   "name": "Product Hero",
   "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading (fallback when no product)",
+      "default": "Fix Your Slice in One Shot"
+    },
+    {
+      "type": "textarea",
+      "id": "subhead",
+      "label": "Subhead",
+      "default": "A simple, field-tested system to straighten your ball flight in a single range session."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image (fallback when no product image)"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text (overrides default Add to Cart)",
+      "default": "Add One Shot Slice Fix to Cart"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link (used on non-product pages)"
+    },
     {
       "type": "range",
       "id": "rating_value",
