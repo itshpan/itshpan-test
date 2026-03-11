@@ -73,6 +73,12 @@ Created `dawn/` and `sandbox-theme/` subdirectories with practice sections. Thes
 - Created `templates/page.one-shot-slice.json`, a new Online Store 2.0 page template that uses only existing section types (`product-hero`, `logo-banner`, `hero-cta`, `bonuses`, `coach-bio`, `guarantee`, `faq-accordion`, `related-products`) and wires them together to match the brief.
 - Fixed Liquid errors when previewing the gift card template by adding minimal stub snippets `snippets/css-variables.liquid` and `snippets/meta-tags.liquid` so `templates/gift_card.liquid` can render without missing-asset errors.
 
+### 8. Bug Fixes — Star Rating & Product Hero on Pages (2026-03-12)
+- Fixed `snippets/star-rating.liquid` Liquid syntax error: the half-star condition `i == full_stars | plus: 1` had operator precedence issues (pipe evaluated before `==`). Resolved by assigning `half_star_pos = full_stars | plus: 1` first.
+- Fixed `sections/product-hero.liquid` error on page templates: `{% form 'product', product %}` crashes when `product` is nil (pages aren't products). Wrapped the form block in `{% if product %}...{% endif %}`.
+- Verified all JSON config/template files — no issues found.
+- Template renders cleanly in the dev theme customizer with all 8 sections loading.
+
 ---
 
 ## Git History
@@ -82,6 +88,8 @@ Branch: dev (active)
 Branch: main
 
 Commits (dev):
+2fc8ca5 Fix star-rating syntax error and product-hero form on page templates
+459862e Add one-shot-slice page template, stub snippets, and harden .gitignore
 7309f15 Fix settings_schema.json: add both theme_documentation_url and theme_support_url
 44b5e9a Add theme documentation URL and project docs
 e2f6521 Remove dawn and sandbox-theme subdirectories
@@ -150,10 +158,12 @@ shopify theme dev --store hpan-dev-store.myshopify.com
 ## Next Steps
 
 - [x] Connect Shopify CLI to `hpan-dev-store` (ran `shopify theme dev --store hpan-dev-store.myshopify.com` from repo root on 2026-03-10)
-- [ ] Test all sections in the theme customizer
+- [x] Test page template in the theme customizer — all 8 sections render, no errors
+- [x] Fix star-rating and product-hero Liquid bugs found during testing
+- [ ] **Edit actual sections to match the page brief** (`docs/one-shot-slice-test-page.md`) — content, layout, and styling
+- [ ] Assign the `one-shot-slice` template to the "One Shot Slice Test" page (via customizer, not Admin)
 - [ ] Practice git branching workflow (e.g., `git checkout -b feature/hero-section`)
 - [ ] Practice breaking things: invalid JSON, bad Liquid syntax, missing commas
-- [ ] Try Claude-assisted editing of sections via Cursor
 - [x] Fix Shopify theme schema error by adding required `theme_documentation_url` to `config/settings_schema.json` and re-pushing the development theme until `shopify theme push` reports no errors.
 - [x] Create and document an AI-assisted workflow for building a new page (from a Markdown brief) in the existing theme without creating a new theme.
 - [x] Harden `.gitignore` to prevent committing passwords, keys, and credential files
