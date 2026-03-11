@@ -15,7 +15,8 @@
 {% for i in (1..5) %}
   {% if i <= full_stars %}
     <svg class="star" viewBox="0 0 20 19" fill="#FFB800"><polygon points="10,0 13,7 20,7 14,11 16,19 10,14 4,19 6,11 0,7 7,7"/></svg>
-  {% elsif has_half and i == full_stars | plus: 1 %}
+  {% assign half_star_pos = full_stars | plus: 1 %}
+  {% elsif has_half and i == half_star_pos %}
     <svg class="star" viewBox="0 0 20 19">
       <defs><linearGradient id="half"><stop offset="50%" stop-color="#FFB800"/><stop offset="50%" stop-color="#ddd"/></linearGradient></defs>
       <polygon points="10,0 13,7 20,7 14,11 16,19 10,14 4,19 6,11 0,7 7,7" fill="url(#half)"/>

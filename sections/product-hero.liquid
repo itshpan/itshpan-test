@@ -69,6 +69,7 @@
 
       <!-- Add to Cart -->
       <div class="add-to-cart-section">
+        {% if product %}
         {%- form 'product', product -%}
           <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
           <button type="submit" class="btn-add-to-cart" id="addToCartBtn"
@@ -80,6 +81,7 @@
             {% endif %}
           </button>
         {%- endform -%}
+        {% endif %}
 
         <div class="usp-row">
           <span class="usp-item">
