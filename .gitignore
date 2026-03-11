@@ -1,7 +1,26 @@
 # Environment / secrets (never commit these)
 .env
+.env.*
+*.env
 .env.local
 .env.*.local
+
+# Credentials & keys
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.jks
+credentials.json
+secrets.json
+service-account*.json
+*-credentials.json
+*.secret
+.htpasswd
+config.yml.local
+config.yaml.local
 
 # OS
 .DS_Store

@@ -1,0 +1,181 @@
+{
+  "sections": {
+    "product-hero": {
+      "type": "product-hero",
+      "settings": {
+        "rating_value": 4.8,
+        "review_count": "2,847",
+        "coach_label": "Your Coach",
+        "coach_name": "John Doe, PGA Teaching Professional"
+      },
+      "blocks": {
+        "feature-1": {
+          "type": "feature_item",
+          "settings": {
+            "text": "Eliminate the banana slice that’s costing you fairways"
+          }
+        },
+        "feature-2": {
+          "type": "feature_item",
+          "settings": {
+            "text": "Build a repeatable, reliable swing path you can trust under pressure"
+          }
+        },
+        "feature-3": {
+          "type": "feature_item",
+          "settings": {
+            "text": "Get step-by-step drills you can run in under 45 minutes"
+          }
+        },
+        "feature-4": {
+          "type": "feature_item",
+          "settings": {
+            "text": "Designed for everyday golfers, not tour pros"
+          }
+        }
+      },
+      "block_order": [
+        "feature-1",
+        "feature-2",
+        "feature-3",
+        "feature-4"
+      ]
+    },
+    "logo-banner": {
+      "type": "logo-banner",
+      "settings": {
+        "heading": "Trusted by golfers from these brands and courses"
+      }
+    },
+    "hero-cta": {
+      "type": "hero-cta",
+      "settings": {
+        "heading": "Ready to straighten your slice?",
+        "body": "You don’t need a brand-new swing or endless range sessions. Follow a clear, simple system that shows you exactly what to adjust and how to lock it in.",
+        "button_text": "Start the One Shot Slice Fix Today"
+      }
+    },
+    "bonuses": {
+      "type": "bonuses",
+      "settings": {
+        "heading": "Limited-Time Bonuses Included Today"
+      },
+      "blocks": {
+        "bonus-1": {
+          "type": "bonus_card",
+          "settings": {
+            "tag": "Bonus #1 — Free",
+            "title": "Driver Distance Secrets",
+            "description": "Add 20–30 yards to your drives with simple, tour-proven power moves you can practice on the range or at home.",
+            "value": "Value: $47"
+          }
+        },
+        "bonus-2": {
+          "type": "bonus_card",
+          "settings": {
+            "tag": "Bonus #2 — Free",
+            "title": "Short Game Putting Masterclass",
+            "description": "Shave 5–7 strokes off your score with a reliable putting routine and green-reading system.",
+            "value": "Value: $37"
+          }
+        },
+        "bonus-3": {
+          "type": "bonus_card",
+          "settings": {
+            "tag": "Bonus #3 — Free",
+            "title": "Mental Game Confidence Guide",
+            "description": "Stay calm under pressure with 7 on-course routines that quiet swing thoughts and build confidence.",
+            "value": "Value: $27"
+          }
+        }
+      },
+      "block_order": [
+        "bonus-1",
+        "bonus-2",
+        "bonus-3"
+      ]
+    },
+    "coach-bio": {
+      "type": "coach-bio",
+      "settings": {
+        "heading": "Meet Your Coach",
+        "body": "<p>John Doe is a PGA teaching professional who has spent over 15 years helping everyday golfers fix their slices and find more fairways. He has taught thousands of lessons and specializes in making swing changes simple and repeatable.</p><p>The One Shot Slice Fix grew out of years of working with slicers on the range and seeing what actually works under pressure. This program distills those lessons into one clear system you can follow in a single focused practice session.</p>"
+      }
+    },
+    "guarantee": {
+      "type": "guarantee",
+      "settings": {
+        "heading": "60-Day Money-Back Guarantee",
+        "body": "<p>Try the One Shot Slice Fix for a full 60 days. Watch the lessons, run through the drills, and take the system to the course. If you don’t see a meaningful improvement in your ball flight, contact us and we’ll refund every penny.</p><p>No hoops, no hassle, and no risk to you. Either your slice improves or you get your money back.</p>"
+      }
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {
+        "heading": "Frequently Asked Questions"
+      },
+      "blocks": {
+        "faq-1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How quickly will I see results?",
+            "answer": "<p>Most golfers notice a significant reduction in their slice within the first focused practice session. The drill is designed to create an immediate feel change that carries over to the course.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if I’m a beginner?",
+            "answer": "<p>This system was built for everyday golfers, including beginners. You don’t need tour-level swing knowledge — just a willingness to follow clear, simple instructions.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this a physical product or digital?",
+            "answer": "<p>The One Shot Slice Fix is 100% digital. You get instant access to all videos on your phone, tablet, or computer as soon as you complete your purchase.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long do I have access?",
+            "answer": "<p>You get lifetime access to all lessons and updates. Re-watch the material any time you want a refresher before a round.</p>"
+          }
+        },
+        "faq-5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if it doesn’t work for me?",
+            "answer": "<p>If you don’t see a meaningful improvement in your slice within 60 days, email our support team and we’ll refund your purchase in full.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5"
+      ]
+    },
+    "related": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You Might Also Like",
+        "limit": 4
+      }
+    }
+  },
+  "order": [
+    "product-hero",
+    "logo-banner",
+    "hero-cta",
+    "bonuses",
+    "coach-bio",
+    "guarantee",
+    "faq",
+    "related"
+  ]
+}
+

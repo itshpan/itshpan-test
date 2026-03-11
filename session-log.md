@@ -60,6 +60,19 @@ Created `dawn/` and `sandbox-theme/` subdirectories with practice sections. Thes
 - Renamed local folder from `itshpan:test` → `one-shot-slice-fix`
 - Updated git remote URL to match
 
+### 5. Settings Schema Fix (commits 44b5e9a, 7309f15)
+- Added `theme_documentation_url` and `theme_support_url` to `config/settings_schema.json` to satisfy Shopify's required fields
+- Added project docs
+
+### 6. Hardened .gitignore for Security (2026-03-11)
+- Expanded `.gitignore` to prevent accidental commit of passwords, keys, and credentials
+- Added patterns for: `.env.*`, `*.env`, certificates (`*.pem`, `*.key`, `*.p12`, `*.pfx`, `*.crt`, `*.cer`, `*.jks`), credential files (`credentials.json`, `secrets.json`, `service-account*.json`, `*-credentials.json`, `*.secret`, `.htpasswd`), and local config overrides (`config.yml.local`, `config.yaml.local`)
+
+### 7. AI-Assisted Page + Gift Card Fix (2026-03-11)
+- Added `docs/one-shot-slice-test-page.md`, a Markdown page brief describing the "One Shot Slice Test Page" and mapping copy/design instructions onto existing sections.
+- Created `templates/page.one-shot-slice.json`, a new Online Store 2.0 page template that uses only existing section types (`product-hero`, `logo-banner`, `hero-cta`, `bonuses`, `coach-bio`, `guarantee`, `faq-accordion`, `related-products`) and wires them together to match the brief.
+- Fixed Liquid errors when previewing the gift card template by adding minimal stub snippets `snippets/css-variables.liquid` and `snippets/meta-tags.liquid` so `templates/gift_card.liquid` can render without missing-asset errors.
+
 ---
 
 ## Git History
@@ -69,6 +82,8 @@ Branch: dev (active)
 Branch: main
 
 Commits (dev):
+7309f15 Fix settings_schema.json: add both theme_documentation_url and theme_support_url
+44b5e9a Add theme documentation URL and project docs
 e2f6521 Remove dawn and sandbox-theme subdirectories
 4106967 Add sandbox environment with Dawn theme and practice sections
 1d75b44 Convert static landing page to Shopify OS 2.0 theme
@@ -128,6 +143,7 @@ shopify theme dev --store hpan-dev-store.myshopify.com
 3. **Shopify CLI needs interactive terminal** — `shopify theme dev` can't run through Claude's Bash tool because it prompts for store password. Must run in Cursor's terminal directly.
 4. **Folder colon in name** — macOS allowed `itshpan:test` but GitHub converted to `itshpan-test`. Renamed everything to `one-shot-slice-fix` for clarity.
 5. **Shopify theme push errors (gift card + schema)** — Pushing to the `Development (77df98-USERnoMacBook-Air)` theme (`#160253509844`) initially logged errors: `templates/gift_card.liquid could not be deleted` and `config/settings_schema.json` missing required `theme_documentation_url` in section 1. Resolution: added `"theme_documentation_url"` to the `theme_info` object in `config/settings_schema.json`, then re-ran `shopify theme push --store hpan-dev-store.myshopify.com` targeting the development theme until it deployed cleanly. The dev theme is now in sync with the repo and ready for safe page/section experiments without touching the live `test-data` theme.
+6. **AI-assisted page brief + workflow scaffolded** — Created `docs/one-shot-slice-test-page.md`, a Markdown "page brief" that describes a new marketing page (handle `one-shot-slice-test`) to be implemented inside the existing theme using an Online Store 2.0 JSON template (`templates/page.one-shot-slice.json`). The brief maps high-level copy and design instructions to existing sections (`product-hero`, `logo-banner`, `hero-cta`, `bonuses`, `coach-bio`, `guarantee`, `faq-accordion`, `related-products`) and documents how AI in Cursor should translate edits in the Markdown file into template/section changes, deployed via `shopify theme push` to the development theme.
 
 ---
 
@@ -139,7 +155,9 @@ shopify theme dev --store hpan-dev-store.myshopify.com
 - [ ] Practice breaking things: invalid JSON, bad Liquid syntax, missing commas
 - [ ] Try Claude-assisted editing of sections via Cursor
 - [x] Fix Shopify theme schema error by adding required `theme_documentation_url` to `config/settings_schema.json` and re-pushing the development theme until `shopify theme push` reports no errors.
-- [ ] Create and document an AI-assisted workflow for building a new page (from a Markdown brief) in the existing theme without creating a new theme.
+- [x] Create and document an AI-assisted workflow for building a new page (from a Markdown brief) in the existing theme without creating a new theme.
+- [x] Harden `.gitignore` to prevent committing passwords, keys, and credential files
+- [x] Implement the `page.one-shot-slice.json` template and wire it to a real Shopify page using the development theme, following `docs/one-shot-slice-test-page.md`.
 
 ---
 
